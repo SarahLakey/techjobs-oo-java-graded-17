@@ -49,7 +49,8 @@ public class JobTest {
         String newline = System.lineSeparator();
 //        String expected =  String.format(
 //                testJob1 + "%n");
-        String expected = newline + testJob1 + newline;
+        String expected = testJob1 + newline;
+//        String expected = newline + testJob1 + newline;
         String actual = testJob1.toString();
         assertEquals(msg, expected, actual);
     }
