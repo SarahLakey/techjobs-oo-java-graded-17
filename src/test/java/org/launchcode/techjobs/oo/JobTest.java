@@ -73,6 +73,10 @@ public class JobTest {
     public void  testToStringHandlesEmptyField(){
         String msg = "If a field is empty, the method should add, 'Data not available' after the label";
         Job testJob1 = new Job("Product tester", new Employer(), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+//        String expected = "Data not available";
+//        String actual = testJob1.getEmployer().toString();
+//        assertEquals(msg, expected, actual);
+//        assertFalse(testJob1.getLocation() == null);
 
         String notNullMsg = "Data not available";
         assertNotNull(testJob1.getEmployer().toString(), notNullMsg);
