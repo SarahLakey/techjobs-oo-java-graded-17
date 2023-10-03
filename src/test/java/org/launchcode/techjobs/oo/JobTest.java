@@ -42,4 +42,44 @@ public class JobTest {
         assertNotEquals(msg, expected, actual);
     }
 
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+        String msg = "When passed a Job object, it should return a string that contains a blank line before and after the job information";
+        Job testJob1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String newline = System.lineSeparator();
+        String expected =  newline +
+                testJob1.getName() + newline;
+        String actual = testJob1.toString();
+        assertEquals(msg, expected, actual);
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        String msg = "Contains correct labels and data";
+        Job testJob1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String newline = System.lineSeparator();
+        String expected =  newline +
+                "ID: " + testJob1.getId() + newline +
+                "Name: " + testJob1.getName() + newline +
+                "Employer: " + testJob1.getEmployer() + newline +
+                "Location: " + testJob1.getLocation() + newline +
+                "Position Type: " + testJob1.getPositionType() + newline +
+                "Core Competency: " + testJob1.getCoreCompetency() + newline;
+        String actual = testJob1.toString();
+        assertEquals(msg, expected, actual);
+    }
+
+    @Test
+    public void  testToStringHandlesEmptyField(){
+        String msg = "If a field is empty, the method should add, 'Data not available' after the label";
+        Job testJob1 = new Job("Product tester", new Employer(), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        String notNullMsg = "Data not available";
+        assertNotNull(testJob1.getEmployer().toString(), notNullMsg);
+
+    }
+
+    //(Optional) If a Job object ONLY contains data for the id field, the method should
+    // return, “OOPS! This job does not seem to exist.”
+
 }
