@@ -47,12 +47,11 @@ public class JobTest {
         String msg = "When passed a Job object, it should return a string that contains a blank line before and after the job information";
         Job testJob1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String newline = System.lineSeparator();
-//        String expected =  String.format(
-//                testJob1 + "%n");
-        String expected = testJob1 + newline;
-//        String expected = newline + testJob1 + newline;
+
         String actual = testJob1.toString();
-        assertEquals(msg, expected, actual);
+        assertTrue(actual.startsWith(newline));
+        assertTrue(actual.endsWith(newline));
+
     }
 
     @Test
