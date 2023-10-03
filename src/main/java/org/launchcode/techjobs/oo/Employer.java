@@ -27,6 +27,7 @@ public class Employer extends JobField {
     @Override
     public String toString() {
         return value;
+//        return super.toString();
     }
 
     @Override
